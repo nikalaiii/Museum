@@ -1,12 +1,11 @@
-@import '/src/styles/variables.scss';
-@import '/src/styles/mixins.scss';
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
 
 html {
   max-width: $content-max-width;
   margin: 0 auto;
   padding-inline: $general-padding-inline;
   box-sizing: border-box;
-  
 }
 
 body {
@@ -38,30 +37,32 @@ body {
     grid-column: 1 / 1;
 
     &__menu {
+      @include set-size(24px, 24px);
+
       background-image: url('/src/images/header-menu-24.png');
-      @include set-size(24px, 24px)
     }
   }
 
   &__logo {
     @include set-title($font-montserrat, 700, 36px, 36px);
+
     text-align: center;
     grid-column: 6 / 7;
     position: absolute;
     display: inline;
     left: 50%;
     right: 50%;
-    grid-column: 6 / 7;
     z-index: 2;
   }
 
   &__image {
+    @include set-size(655px, 725px);
+
     grid-column: 6 / -1;
     grid-row: 1 / -1;
     background-image: url('/src/images/header-pc.png');
     background-repeat: no-repeat;
     background-size: contain;
-    @include set-size(655px, 725px);
     z-index: 1;
   }
 
@@ -70,27 +71,29 @@ body {
   }
 
   &__tickets {
+    @include set-size(70px, 270px);
+
     display: flex;
     justify-content: end;
     align-items: center;
-    @include set-size(70px, 270px);
     grid-row: 3 / 3;
     border: 1px, solid, black;
 
-    &--title{
+    &--title {
       @include set-title($font-IBM-plex, 500, 16px, 16px, auto);
     }
 
     &__button {
+      @include set-size(100%, 70px);
+
       display: flex;
       justify-content: center;
       align-items: center;
-      @include set-size(100%, 70px);
-      background-color: #1A5A4C;
+      background-color: #1a5a4c;
 
       &--arrow {
         color: white;
       }
     }
-   }
+  }
 }
