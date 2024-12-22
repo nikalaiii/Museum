@@ -1,0 +1,13 @@
+@mixin set-size($height, $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin set-title($font, $weight, $size, $line-height, $margin: 0, $padding: 0) {
+    font-family: $font;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $line-height;
+    padding: $padding;
+    margin: $margin;
+}

@@ -1,7 +1,96 @@
-@import 'utils';
-@import 'fonts';
-@import 'typography';
+@import '/src/styles/variables.scss';
+@import '/src/styles/mixins.scss';
+
+html {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding-inline: $general-padding-inline;
+  box-sizing: border-box;
+  
+}
 
 body {
-  background: $c-gray;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  max-width: $content-max-width;
+  box-sizing: border-box;
+
+  height: 100vh;
+
+  &__content {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 3fr 2fr;
+    gap: $general-gap;
+  }
+
+  &__main {
+    grid-row: 2 / 2;
+    align-self: center; /* Центрує по вертикалі в межах грід-рядка */
+  }
+
+  &__top-bar {
+    margin-top: 24px;
+    grid-column: 1 / 1;
+
+    &__menu {
+      background-image: url('/src/images/header-menu-24.png');
+      @include set-size(24px, 24px)
+    }
+  }
+
+  &__logo {
+    @include set-title($font-montserrat, 700, 36px, 36px);
+    text-align: center;
+    grid-column: 6 / 7;
+    position: absolute;
+    display: inline;
+    left: 50%;
+    right: 50%;
+    grid-column: 6 / 7;
+    z-index: 2;
+  }
+
+  &__image {
+    grid-column: 6 / -1;
+    grid-row: 1 / -1;
+    background-image: url('/src/images/header-pc.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include set-size(655px, 725px);
+    z-index: 1;
+  }
+
+  &__title {
+    @include set-title($font-montserrat, 700, 72px, 86px);
+  }
+
+  &__tickets {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    @include set-size(70px, 270px);
+    grid-row: 3 / 3;
+    border: 1px, solid, black;
+
+    &--title{
+      @include set-title($font-IBM-plex, 500, 16px, 16px, auto);
+    }
+
+    &__button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include set-size(100%, 70px);
+      background-color: #1A5A4C;
+
+      &--arrow {
+        color: white;
+      }
+    }
+   }
 }
